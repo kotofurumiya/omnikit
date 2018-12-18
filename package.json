@@ -1,0 +1,47 @@
+{
+  "name": "omnikit",
+  "version": "0.1.0",
+  "description": "JavaScript utility bundle",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "format": "prettier --write 'src/**/*.ts'",
+    "typedoc": "typedoc ./src --out ./docs --readme README.md && nodetouch ./docs/.nojekyll",
+    "test": "jest",
+    "webpack": "webpack",
+    "build": "tsc && npm run typedoc && webpack"
+  },
+  "keywords": [
+    "util",
+    "utility",
+    "optional",
+    "random",
+    "math"
+  ],
+  "author": "Koto Furumiya <kotofurumiya@gmail.com> (https://sbfl.net/)",
+  "license": "MIT",
+  "files": [
+    "lib/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kotofurumiya/omnikit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kotofurumiya/omnikit/issues",
+    "email": "kotofurumiya@gmail.com"
+  },
+  "homepage": "https://github.com/kotofurumiya/omnikit",
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3",
+    "touch": "^3.1.0",
+    "ts-jest": "^23.10.5",
+    "ts-loader": "^5.3.1",
+    "typedoc": "^0.13.0",
+    "typescript": "^3.2.2",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
