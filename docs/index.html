@@ -69,18 +69,18 @@
 				<p>Note: First version contains only few features. I will add more features. Stay tuned.</p>
 				<h2 id="install-without-node-js-on-browsers-">Install(without Node.js / on Browsers)</h2>
 				<p>Copy <code>build/omnikit.min.js</code> into your project directory,
-				and load from your HTML file.</p>
+				and load the file from your HTML file.</p>
 				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"omnikit.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
   <span class="hljs-comment">// Write your code here!</span>
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>Other files(<code>lib</code>, <code>src</code>, etc.) are for Node.js, so you can ignore them.</p>
 				<h2 id="install-with-node-js-">Install(with Node.js)</h2>
 				<p>Install omnikit into your project.</p>
-				<pre><code>npm <span class="hljs-keyword">install</span> omnikit <span class="hljs-comment">--save</span></code></pre><p>Then import modules what you need. For example, <code>Optional</code> and <code>Random</code>.</p>
-				<pre><code><span class="hljs-keyword">const</span> { Optional, <span class="hljs-built_in">Random</span> } = require(<span class="hljs-string">'omnikit'</span>)<span class="hljs-comment">;</span></code></pre><h2 id="basic-usage">Basic Usage</h2>
+				<pre><code>npm <span class="hljs-keyword">install</span> omnikit <span class="hljs-comment">--save</span></code></pre><p>Then import modules that you need. For example, <code>Optional</code>, <code>Stack</code> and <code>Random</code>.</p>
+				<pre><code><span class="hljs-keyword">const</span> { Optional, Stack, <span class="hljs-built_in">Random</span> } = require(<span class="hljs-string">'omnikit'</span>)<span class="hljs-comment">;</span></code></pre><h2 id="basic-usage">Basic Usage</h2>
 				<p>For details, see <a href="https://kotofurumiya.github.io/omnikit/">API Document</a>.</p>
 				<h3 id="optional">Optional</h3>
-				<p><code>Optional</code> class represent nullable(undefinable) value, which is inspired from Java or Swift.</p>
+				<p><code>Optional</code> class represent nullable(undefinable) value, which is inspired by Java and Swift.</p>
 				<pre><code><span class="hljs-keyword">const</span> opt = <span class="hljs-keyword">new</span> Optional(<span class="hljs-string">'hello'</span>);
 <span class="hljs-keyword">const</span> opt2 = opt.map(<span class="hljs-function">(<span class="hljs-params">val</span>) =&gt;</span> val + <span class="hljs-string">' world'</span>);
 <span class="hljs-keyword">const</span> str = opt2.flatMap(<span class="hljs-function">(<span class="hljs-params">val</span>) =&gt;</span> val);
@@ -92,7 +92,17 @@
 console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">random</span>.<span class="hljs-keyword">next</span>())<span class="hljs-comment">;</span>
 console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">random</span>.nextInt(<span class="hljs-number">5</span>, <span class="hljs-number">10</span>))<span class="hljs-comment">; // from 5 to 10</span></code></pre><h3 id="conditions">conditions</h3>
 				<pre><code><span class="hljs-keyword">const</span> cond1 = isNull(<span class="hljs-literal">null</span>); <span class="hljs-comment">// true</span>
-<span class="hljs-keyword">const</span> cond2 = isUndefined(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// true</span></code></pre>
+<span class="hljs-keyword">const</span> cond2 = isUndefined(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// true</span></code></pre><h3 id="stack-and-queue">Stack and Queue</h3>
+				<p>Stack is LIFO(Last In First Out) and Queue is FIFO(First In First Out).</p>
+				<pre><code><span class="hljs-keyword">const</span> <span class="hljs-built_in">stack</span> = <span class="hljs-keyword">new</span> Stack();
+<span class="hljs-built_in">stack</span>.push(<span class="hljs-number">1</span>);
+<span class="hljs-built_in">stack</span>.push(<span class="hljs-number">2</span>);
+console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">stack</span>.pop()); <span class="hljs-comment">// 2</span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-built_in">queue</span> = <span class="hljs-keyword">new</span> Queue();
+<span class="hljs-built_in">queue</span>.enqueue(<span class="hljs-number">1</span>);
+<span class="hljs-built_in">queue</span>.enqueue(<span class="hljs-number">2</span>);
+console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">queue</span>.dequeue()); <span class="hljs-comment">// 1</span></code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -100,6 +110,12 @@ console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">rando
 				<ul>
 					<li class="globals  ">
 						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_collection_queue_.html">"collection/queue"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_collection_stack_.html">"collection/stack"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_core_condition_.html">"core/condition"</a>

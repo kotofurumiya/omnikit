@@ -7,7 +7,7 @@ Note: First version contains only few features. I will add more features. Stay t
 ## Install(without Node.js / on Browsers)
 
 Copy `build/omnikit.min.js` into your project directory,
-and load from your HTML file.
+and load the file from your HTML file.
 
 ```
 <script src="omnikit.min.js"></script>
@@ -18,7 +18,6 @@ and load from your HTML file.
 
 Other files(`lib`, `src`, etc.) are for Node.js, so you can ignore them.
 
-
 ## Install(with Node.js)
 
 Install omnikit into your project.
@@ -27,10 +26,10 @@ Install omnikit into your project.
 npm install omnikit --save
 ```
 
-Then import modules what you need. For example, `Optional` and `Random`.
+Then import modules that you need. For example, `Optional`, `Stack` and `Random`.
 
 ```
-const { Optional, Random } = require('omnikit');
+const { Optional, Stack, Random } = require('omnikit');
 ```
 
 ## Basic Usage
@@ -39,7 +38,7 @@ For details, see [API Document](https://kotofurumiya.github.io/omnikit/).
 
 ### Optional
 
-`Optional` class represent nullable(undefinable) value, which is inspired from Java or Swift.
+`Optional` class represent nullable(undefinable) value, which is inspired by Java and Swift.
 
 ```
 const opt = new Optional('hello');
@@ -65,4 +64,20 @@ console.log(random.nextInt(5, 10)); // from 5 to 10
 ```
 const cond1 = isNull(null); // true
 const cond2 = isUndefined(undefined); // true
+```
+
+### Stack and Queue
+
+Stack is LIFO(Last In First Out) and Queue is FIFO(First In First Out).
+
+```
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+console.log(stack.pop()); // 2
+
+const queue = new Queue();
+queue.enqueue(1);
+queue.enqueue(2);
+console.log(queue.dequeue()); // 1
 ```
