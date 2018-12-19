@@ -16,7 +16,9 @@
     "utility",
     "optional",
     "random",
-    "math"
+    "math",
+    "collection",
+    "range"
   ],
   "author": "Koto Furumiya <kotofurumiya@gmail.com> (https://sbfl.net/)",
   "license": "MIT",
