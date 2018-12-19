@@ -26,7 +26,7 @@ export class Queue<T> {
    * Throws an error if the queue is empty.
    */
   dequeue(): T {
-    if(this._values.length > 0) {
+    if (this._values.length > 0) {
       return <T>this._values.shift();
     } else {
       throw new Error('You cannot dequeue value from empty queue.');

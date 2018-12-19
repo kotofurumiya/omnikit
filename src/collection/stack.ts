@@ -25,7 +25,7 @@ export class Stack<T> {
    * Throws an error if the stack is empty.
    */
   pop(): T {
-    if(this._values.length > 0) {
+    if (this._values.length > 0) {
       return <T>this._values.pop();
     } else {
       throw new Error('You cannot pop value from empty stack.');
@@ -37,7 +37,7 @@ export class Stack<T> {
    * Throws an error if the stack is empty.
    */
   peek(): T {
-    if(this._values.length > 0) {
+    if (this._values.length > 0) {
       return this._values[this._values.length - 1];
     } else {
       throw new Error('You cannot peek value from empty stack.');
