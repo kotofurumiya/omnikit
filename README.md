@@ -36,6 +36,39 @@ const { Optional, Stack, Random } = require('omnikit');
 
 For details, see [API Document](https://kotofurumiya.github.io/omnikit/).
 
+### ranges
+
+omnikit provides python-like simple range iterator.
+
+```
+for(const value of range(0, 10)) {
+  console.log(value); // 0, 1, 2, 3, ..., 9
+}
+```
+
+You can also use more specific ranges.
+
+```
+inclusiveRange(0, 10); // 0, 1, 2, ..., 10
+exclusiveRange(0, 10); // 1, 1, 2, ..., 9
+openClosedRange(0, 10); // 1, 2, 3, ..., 10
+closedOpenRange(0, 10); // same as range(0, 10)
+```
+
+All range functions receive 3rd argument as step.
+
+```
+range(0, 10, 0.5); // 0, 0.5, 1.0, ..., 9.5
+```
+
+A step value can be negative.
+
+To convert range to array, use `toArray()` method.
+
+```
+range(0, 10).toArray();
+```
+
 ### Optional
 
 `Optional` class represent nullable(undefinable) value, which is inspired by Java and Swift.

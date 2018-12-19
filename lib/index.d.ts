@@ -1,5 +1,6 @@
 export * from './core/condition';
 export * from './core/optional';
+export * from './core/range';
 export * from './collection/stack';
 export * from './collection/queue';
 export * from './math/functions';

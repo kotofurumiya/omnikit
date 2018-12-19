@@ -1,4 +1,5 @@
 import { isNull, isUndefined } from '../../lib/';
+
 describe('condition funcs', () => {
   test('isNull', () => {
     expect(isNull(true)).toBeFalsy();
