@@ -79,7 +79,18 @@
 				<pre><code>npm <span class="hljs-keyword">install</span> omnikit <span class="hljs-comment">--save</span></code></pre><p>Then import modules that you need. For example, <code>Optional</code>, <code>Stack</code> and <code>Random</code>.</p>
 				<pre><code><span class="hljs-keyword">const</span> { Optional, Stack, <span class="hljs-built_in">Random</span> } = require(<span class="hljs-string">'omnikit'</span>)<span class="hljs-comment">;</span></code></pre><h2 id="basic-usage">Basic Usage</h2>
 				<p>For details, see <a href="https://kotofurumiya.github.io/omnikit/">API Document</a>.</p>
-				<h3 id="optional">Optional</h3>
+				<h3 id="ranges">ranges</h3>
+				<p>omnikit provides python-like simple range iterator.</p>
+				<pre><code><span class="hljs-keyword">for</span>(<span class="hljs-function"><span class="hljs-keyword">const</span> <span class="hljs-keyword">value</span> of <span class="hljs-title">range</span>(<span class="hljs-params"><span class="hljs-number">0</span>, <span class="hljs-number">10</span></span>))</span> {
+  console.log(<span class="hljs-keyword">value</span>); <span class="hljs-comment">// 0, 1, 2, 3, ..., 9</span>
+}</code></pre><p>You can also use more specific ranges.</p>
+				<pre><code>inclusiveRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">// 0, 1, 2, ..., 10</span>
+exclusiveRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">// 1, 1, 2, ..., 9</span>
+openClosedRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">// 1, 2, 3, ..., 10</span>
+closedOpenRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">// same as range(0, 10)</span></code></pre><p>All range functions receive 3rd argument as step.</p>
+				<pre><code>range(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">0.5</span>); <span class="hljs-comment">// 0, 0.5, 1.0, ..., 9.5</span></code></pre><p>A step value can be negative.</p>
+				<p>To convert range to array, use <code>toArray()</code> method.</p>
+				<pre><code>range(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>).toArray();</code></pre><h3 id="optional">Optional</h3>
 				<p><code>Optional</code> class represent nullable(undefinable) value, which is inspired by Java and Swift.</p>
 				<pre><code><span class="hljs-keyword">const</span> opt = <span class="hljs-keyword">new</span> Optional(<span class="hljs-string">'hello'</span>);
 <span class="hljs-keyword">const</span> opt2 = opt.map(<span class="hljs-function">(<span class="hljs-params">val</span>) =&gt;</span> val + <span class="hljs-string">' world'</span>);
@@ -92,7 +103,17 @@
 console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">random</span>.<span class="hljs-keyword">next</span>())<span class="hljs-comment">;</span>
 console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">random</span>.nextInt(<span class="hljs-number">5</span>, <span class="hljs-number">10</span>))<span class="hljs-comment">; // from 5 to 10</span></code></pre><h3 id="conditions">conditions</h3>
 				<pre><code><span class="hljs-keyword">const</span> cond1 = isNull(<span class="hljs-literal">null</span>); <span class="hljs-comment">// true</span>
-<span class="hljs-keyword">const</span> cond2 = isUndefined(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// true</span></code></pre><h3 id="stack-and-queue">Stack and Queue</h3>
+<span class="hljs-keyword">const</span> cond2 = isUndefined(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// true</span></code></pre><h3 id="timer">Timer</h3>
+				<p><code>Timer</code> class provides periodical execution.</p>
+				<pre><code><span class="hljs-keyword">const</span> timer = <span class="hljs-keyword">new</span> Timer(<span class="hljs-number">1000</span>); <span class="hljs-comment">// every 1000ms</span>
+timer.addEventListener(<span class="hljs-string">'tick'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hi'</span>);
+timer.start();
+
+<span class="hljs-comment">// To stop the timer, use stop method.</span>
+<span class="hljs-comment">// timer.stop();</span></code></pre><p>You can also create an once timer.</p>
+				<pre><code><span class="hljs-keyword">const</span> timer = <span class="hljs-keyword">new</span> Timer(<span class="hljs-number">1000</span>, { once: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// after 1000ms</span>
+timer.addEventListener(<span class="hljs-string">'tick'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hi'</span>);
+timer.start();</code></pre><h3 id="stack-and-queue">Stack and Queue</h3>
 				<p>Stack is LIFO(Last In First Out) and Queue is FIFO(First In First Out).</p>
 				<pre><code><span class="hljs-keyword">const</span> <span class="hljs-built_in">stack</span> = <span class="hljs-keyword">new</span> Stack();
 <span class="hljs-built_in">stack</span>.push(<span class="hljs-number">1</span>);
@@ -121,10 +142,16 @@ console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">queue
 						<a href="modules/_core_condition_.html">"core/condition"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_event_dispatcher_.html">"core/event_<wbr>dispatcher"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="modules/_core_optional_.html">"core/optional"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_core_range_.html">"core/range"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_timer_.html">"core/timer"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_index_.html">"index"</a>

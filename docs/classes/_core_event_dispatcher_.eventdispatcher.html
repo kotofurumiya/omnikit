@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Queue | omnikit</title>
+	<title>EventDispatcher | omnikit</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_collection_queue_.html">&quot;collection/queue&quot;</a>
+					<a href="../modules/_core_event_dispatcher_.html">&quot;core/event_dispatcher&quot;</a>
 				</li>
 				<li>
-					<a href="_collection_queue_.queue.html">Queue</a>
+					<a href="_core_event_dispatcher_.eventdispatcher.html">EventDispatcher</a>
 				</li>
 			</ul>
-			<h1>Class Queue&lt;T&gt;</h1>
+			<h1>Class EventDispatcher</h1>
 		</div>
 	</div>
 </header>
@@ -72,26 +72,20 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>FIFO(First In First Out) data structure.</p>
+						<p>An event emitter which calls registered callback functions named <code>listener</code> with an event.</p>
 					</div>
-					<pre><code><span class="hljs-keyword">const</span> <span class="hljs-built_in">queue</span> = <span class="hljs-keyword">new</span> Queue();
-<span class="hljs-built_in">queue</span>.enqueue(<span class="hljs-number">123</span>);
-console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">queue</span>.dequeue()); <span class="hljs-comment">// 123</span></code></pre>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>T</h4>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Queue</span>
+						<span class="target">EventDispatcher</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_core_timer_.timer.html" class="tsd-signature-type">Timer</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -102,20 +96,22 @@ console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">queue
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_collection_queue_.queue.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_core_event_dispatcher_.eventdispatcher.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_collection_queue_.queue.html#_values" class="tsd-kind-icon">_values</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_core_event_dispatcher_.eventdispatcher.html#_listenermap" class="tsd-kind-icon">_listener<wbr>Map</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collection_queue_.queue.html#dequeue" class="tsd-kind-icon">dequeue</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collection_queue_.queue.html#enqueue" class="tsd-kind-icon">enqueue</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_event_dispatcher_.eventdispatcher.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_event_dispatcher_.eventdispatcher.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_event_dispatcher_.eventdispatcher.html#removealleventlisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Event<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_event_dispatcher_.eventdispatcher.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a></li>
 							</ul>
 						</section>
 					</div>
@@ -127,16 +123,16 @@ console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">queue
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Queue<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collection_queue_.queue.html" class="tsd-signature-type">Queue</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Event<wbr>Dispatcher<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_core_event_dispatcher_.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kotofurumiya/omnikit/blob/30677c7/src/collection/queue.ts#L9">collection/queue.ts:9</a></li>
+									<li>Defined in core/event_dispatcher.ts:5</li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="_collection_queue_.queue.html" class="tsd-signature-type">Queue</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_core_event_dispatcher_.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -144,12 +140,12 @@ console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">queue
 			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="_values" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _values</h3>
-					<div class="tsd-signature tsd-kind-icon">_values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></div>
+					<a name="_listenermap" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _listener<wbr>Map</h3>
+					<div class="tsd-signature tsd-kind-icon">_listener<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kotofurumiya/omnikit/blob/30677c7/src/collection/queue.ts#L9">collection/queue.ts:9</a></li>
+							<li>Defined in core/event_dispatcher.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -157,55 +153,132 @@ console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">queue
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="dequeue" class="tsd-anchor"></a>
-					<h3>dequeue</h3>
+					<a name="addeventlistener" class="tsd-anchor"></a>
+					<h3>add<wbr>Event<wbr>Listener</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">dequeue<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kotofurumiya/omnikit/blob/30677c7/src/collection/queue.ts#L28">collection/queue.ts:28</a></li>
+									<li>Defined in core/event_dispatcher.ts:16</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns oldest value of the queue and remove it.
-									Throws an error if the queue is empty.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="enqueue" class="tsd-anchor"></a>
-					<h3>enqueue</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">enqueue<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/kotofurumiya/omnikit/blob/30677c7/src/collection/queue.ts#L20">collection/queue.ts:20</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Adds <code>value</code> to the queue.</p>
+									<p>Add <code>listener</code> to the dispatcher&#39;s event named <code>type</code>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">Function</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="dispatchevent" class="tsd-anchor"></a>
+					<h3>dispatch<wbr>Event</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">dispatch<wbr>Event<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, event<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in core/event_dispatcher.ts:65</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Calls every listeners registered to <code>type</code> event.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="removealleventlisteners" class="tsd-anchor"></a>
+					<h3>remove<wbr>All<wbr>Event<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>All<wbr>Event<wbr>Listeners<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in core/event_dispatcher.ts:48</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove all listeners. If <code>type</code> is specified, remove all listeners of <code>type</code>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> type: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="removeeventlistener" class="tsd-anchor"></a>
+					<h3>remove<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in core/event_dispatcher.ts:31</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove the <code>listener</code> from the dispatcher.</p>
+								</div>
+								<p>Returns <code>true</code> if <code>listener</code> is removed, otherwise returns <code>false</code>.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">Function</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -217,7 +290,7 @@ console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">queue
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collection_queue_.html">"collection/queue"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -226,7 +299,7 @@ console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">queue
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_core_condition_.html">"core/condition"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_core_event_dispatcher_.html">"core/event_<wbr>dispatcher"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -253,20 +326,26 @@ console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">queue
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_collection_queue_.queue.html" class="tsd-kind-icon">Queue</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_core_event_dispatcher_.eventdispatcher.html" class="tsd-kind-icon">Event<wbr>Dispatcher</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_collection_queue_.queue.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_core_event_dispatcher_.eventdispatcher.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="_collection_queue_.queue.html#_values" class="tsd-kind-icon">_values</a>
+								<a href="_core_event_dispatcher_.eventdispatcher.html#_listenermap" class="tsd-kind-icon">_listener<wbr>Map</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_collection_queue_.queue.html#dequeue" class="tsd-kind-icon">dequeue</a>
+								<a href="_core_event_dispatcher_.eventdispatcher.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_collection_queue_.queue.html#enqueue" class="tsd-kind-icon">enqueue</a>
+								<a href="_core_event_dispatcher_.eventdispatcher.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_core_event_dispatcher_.eventdispatcher.html#removealleventlisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Event<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_core_event_dispatcher_.eventdispatcher.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a>
 							</li>
 						</ul>
 					</li>

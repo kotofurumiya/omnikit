@@ -99,6 +99,27 @@ const cond1 = isNull(null); // true
 const cond2 = isUndefined(undefined); // true
 ```
 
+### Timer
+
+`Timer` class provides periodical execution.
+
+```
+const timer = new Timer(1000); // every 1000ms
+timer.addEventListener('tick', () => console.log('Hi');
+timer.start();
+
+// To stop the timer, use stop method.
+// timer.stop();
+```
+
+You can also create an once timer.
+
+```
+const timer = new Timer(1000, { once: true }); // after 1000ms
+timer.addEventListener('tick', () => console.log('Hi');
+timer.start();
+```
+
 ### Stack and Queue
 
 Stack is LIFO(Last In First Out) and Queue is FIFO(First In First Out).
